@@ -1,0 +1,12 @@
+This assignment is on Exceptions and the Adapter Pattern.  It is based on Example Two (whose source is found in Contents).
+
+You need to create two new classes, InvalidDistanceComputationException and InvalidComparisonException.
+
+*** NOTE *** Because you will throw these from overridden methods that ARE NOT declared to throw, you must inherit from RuntimeException so they are both unchecked exceptions. I did this intentionally because this overriding situation often arises in practice and inheriting from RuntimeException instead of Exception is the standard way of handling it.
+
+I have given you the main() I will use and the expected output. You must modify the code of Example Two so it produces the output when run against the main() I have provided for this assignment. 
+
+You will be adding throws where needed.
+You will need to deal with the changes to the Scalable interface.
+You must implement Square by using the Adapter pattern with the class Rectangle.
+Equality for rectangles is defined by their areas being equal.
