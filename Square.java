@@ -66,7 +66,7 @@ public class Square extends Shape{
 	public int compareTo(Object o) {
 		return mSquare.compareTo(o);
 	}
-
-	private Rectangle mSquare;
-	private int mSide;
+  
+private Rectangle mSquare;
+private int mSide;  
 }
