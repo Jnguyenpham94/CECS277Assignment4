@@ -1,4 +1,6 @@
-
+//Assignment 4
+//Kenny Ta 015020302
+//Jonathan Nguyen-Pham, 016297682 
 public class Rectangle extends Shape 
 {
 	public Rectangle()
@@ -31,7 +33,7 @@ public class Rectangle extends Shape
 	
 	public Rectangle(Rectangle r)
 	{
-		this("Copy of " + r.getName(), r.getLength(), r.getWidth(), new Point(r.getCorner()));
+		this(r.getName(), r.getLength(), r.getWidth(), new Point(r.getCorner()));
 	}
 	
 	@Override
@@ -49,7 +51,10 @@ public class Rectangle extends Shape
 	@Override
 	public double getDistance(Shape other)
 	{
-		if(!(other instanceof Rectangle)) throw new InvalidDistanceComputationException("Rectangle", other.getClass().toString());
+		if(!(other instanceof Rectangle))
+		{
+			throw new InvalidDistanceComputationException("Rectangle", other.getClass().toString());
+		} 
 		else
 		{
 			Rectangle r = (Rectangle)other;
@@ -100,10 +105,12 @@ public class Rectangle extends Shape
 	}
 	
 	@Override
-	public void scale(int scaleFactor)
+	public String scale(int scaleFactor)
 	{
 		mLength = mLength * scaleFactor;
 		mWidth = mWidth * scaleFactor;
+		Rectangle r = new Rectangle(getName(), mLength, mWidth);
+		return r.toString();
 	}
 	
 	public Point getCorner()

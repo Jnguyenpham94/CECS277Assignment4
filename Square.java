@@ -1,51 +1,72 @@
+//Assignment 4
+//Kenny Ta 015020302
+//Jonathan Nguyen-Pham, 016297682 
+public class Square extends Shape{
 
-
-public class Square extends Shape {
-
-    public Square(){
-        this("NoNameSquare");
-    }
-
-    public Square(String name){
-        
-    }
-
-	public String getDistance(Square s1) {
-		return null;
+	public Square() {
+		super("NoNameSquare");
+		mSquare = new Rectangle();
+		mSide = 3;
 	}
 
-	public String getDistance(Point p1) {
-		return null;
+	private int getSide() {
+		return mSide;
 	}
 
-	@Override
-	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public String scale(int scalefactor) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public double getArea() {
-		// TODO Auto-generated method stub
-		return 0;
+		return mSide * mSide;
 	}
 
 	@Override
 	public double getPerimeter() {
-		// TODO Auto-generated method stub
-		return 0;
+		return mSquare.getPerimeter();
 	}
 
 	@Override
-	public double getDistance(Shape other) {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getDistance(Shape s1) {
+		if(!(s1 instanceof Square))
+		{
+			throw new InvalidDistanceComputationException("Square", s1.getClass().toString());
+		}
+		else
+		{
+			Square r1 = (Square)s1;
+			return mSquare.compareTo(r1);
+		}
 	}
 
+	@Override
+	public String toString()
+	{
+		return "Square: " + super.getName() + ", Side: " + getSide();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if(!(o instanceof Square))
+		{
+			throw new InvalidComparisonException("Square", o.getClass().toString());
+		}
+		else
+		{
+			Square s = (Square)o;			
+			return super.equals(s);
+		}
+	}
+
+	@Override
+	public String scale(int scalefactor) {
+		mSide *= scalefactor;
+		Square s = new Square();
+		return s.toString();
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		return mSquare.compareTo(o);
+	}
+  
+private Rectangle mSquare;
+private int mSide;  
 }
