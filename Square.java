@@ -29,8 +29,9 @@ public class Square extends Shape{
 
 	@Override
 	public String scale(int scalefactor) {
-		// TODO Auto-generated method stub
-		return null;
+		mSide *= scalefactor;
+		Square s = new Square();
+		return s.toString();
 	}
 
 	@Override
@@ -52,6 +53,5 @@ public class Square extends Shape{
 	}
 
 	private Rectangle mSquare;
-	private String mName;
 	private int mSide;
 }

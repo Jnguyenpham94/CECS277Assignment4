@@ -100,10 +100,13 @@ public class Rectangle extends Shape
 	}
 	
 	@Override
-	public void scale(int scaleFactor)
+	public String scale(int scaleFactor)
+	//TODO: still doing "Point: Name = Copy of: corner" need to remove "copy of"
 	{
 		mLength = mLength * scaleFactor;
 		mWidth = mWidth * scaleFactor;
+		Rectangle r = new Rectangle(getName(), mLength, mWidth);
+		return r.toString();
 	}
 	
 	public Point getCorner()
