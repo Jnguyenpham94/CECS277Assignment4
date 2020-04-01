@@ -1,4 +1,6 @@
-
+//Assignment 4
+//Kenny Ta 015020302
+//Jonathan Nguyen-Pham, 016297682 
 public class Point extends Shape
 {
 	public Point()
@@ -13,7 +15,7 @@ public class Point extends Shape
 	
 	public Point(Point p)
 	{
-		this("Copy of: " + p.getName(), p.getX(), p.getY());
+		this(p.getName(), p.getX(), p.getY());
 	}
 	
 	public Point(String name, int x, int y)
@@ -38,7 +40,10 @@ public class Point extends Shape
 	@Override
 	public double getDistance(Shape other)
 	{
-		if(!(other instanceof Point)) return 0.0;
+		if(!(other instanceof Point))
+		{
+			throw new InvalidDistanceComputationException("Point", other.getClass().toString());
+		}
 		else
 		{
 			Point p = (Point)other;
@@ -104,7 +109,7 @@ public class Point extends Shape
 	{
 		int x = mX + scaleFactor;
 		int y = mY + scaleFactor;
-		Point p = new Point(getName(), x, y);
+		Point p = new Point(getName(), 2, 2);
 		
 		return p.toString();
 	}

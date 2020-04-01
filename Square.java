@@ -5,20 +5,34 @@ public class Square extends Shape{
 
 	public Square() {
 		super("NoNameSquare");
-		mSquare = new Rectangle("NoNameSquare");
+		mSquare = new Rectangle();
 		mSide = 3;
-	}
-	
-	public double getArea(){
-		return mSquare.getArea();
-	}
-
-	public double getDistance(Shape s1) {
-		return mSquare.getDistance(s1);
 	}
 
 	private int getSide() {
 		return mSide;
+	}
+
+	public double getArea() {
+		return mSide * mSide;
+	}
+
+	@Override
+	public double getPerimeter() {
+		return mSquare.getPerimeter();
+	}
+
+	@Override
+	public double getDistance(Shape s1) {
+		if(!(s1 instanceof Square))
+		{
+			throw new InvalidDistanceComputationException("Square", s1.getClass().toString());
+		}
+		else
+		{
+			Square r1 = (Square)s1;
+			return mSquare.compareTo(r1);
+		}
 	}
 
 	@Override
@@ -49,21 +63,8 @@ public class Square extends Shape{
 	}
 
 	@Override
-	public double getPerimeter() {
-		return mSquare.getPerimeter();
-	}
-
-	@Override
 	public int compareTo(Object o) {
-		if (!(o instanceof Object))
-		{
-			return 1;
-		}
-		Rectangle r = (Rectangle) o;
-		Double recOne = new Double(getArea());
-		Double rectwo = new Double(r.getArea());
-		// TODO Equality for rectangles is defined by their areas being equal.
-		return recOne.compareTo(rectwo);
+		return mSquare.compareTo(o);
 	}
 
 	private Rectangle mSquare;

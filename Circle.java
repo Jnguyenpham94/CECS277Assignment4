@@ -1,4 +1,6 @@
-
+//Assignment 4
+//Kenny Ta 015020302
+//Jonathan Nguyen-Pham, 016297682 
 public class Circle extends Shape 
 {
 	public Circle()
@@ -32,7 +34,7 @@ public class Circle extends Shape
 	
 	public Circle(Circle c)
 	{
-		this(new Name("Copy of " + c.getName()), new Point(c.getCenter()), c.getRadius());
+		this(new Name(c.getName()), new Point(c.getCenter()), c.getRadius());
 	}
 	
 	@Override
@@ -50,7 +52,10 @@ public class Circle extends Shape
 	@Override
 	public double getDistance(Shape other)
 	{
-		if(!(other instanceof Circle)) return 0.0;
+		if(!(other instanceof Circle))
+		{
+			throw new InvalidDistanceComputationException("Circle", other.getClass().toString());
+		}
 		else
 		{
 			Circle c = (Circle)other;
