@@ -15,7 +15,7 @@ public class Circle extends Shape
 	
 	public Circle(Name name)
 	{
-		this(name, new Point());
+		this(name, new Point("center", 0, 0));
 	}
 	
 	
@@ -27,7 +27,7 @@ public class Circle extends Shape
 	public Circle(Name name, Point center, double radius)
 	{
 		super(name);
-		mCenter = center;
+		mCenter = new Point(center);
 		mRadius = radius;
 		
 	}
@@ -108,6 +108,7 @@ public class Circle extends Shape
 	public String scale(int scaleFactor)
 	{
 		double radius = mRadius * scaleFactor;
+		setRadius(radius);
 		Circle c = new Circle(new Name(getName()), mCenter, radius);
 		
 		return c.toString();
@@ -120,6 +121,11 @@ public class Circle extends Shape
 	public double getRadius()
 	{
 		return mRadius;
+	}
+
+	public void setRadius(double radius)
+	{
+		mRadius = radius;
 	}
 	
 	private Point mCenter;

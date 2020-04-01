@@ -61,6 +61,12 @@ public class Point extends Shape
 	{
 		return mY;
 	}
+
+	public void setXY(int x, int y)
+	{
+		mX = x;
+		mY = y;
+	}
 	
 	@Override
 	public String toString()
@@ -109,7 +115,8 @@ public class Point extends Shape
 	{
 		int x = mX + scaleFactor;
 		int y = mY + scaleFactor;
-		Point p = new Point(getName(), 2, 2);
+		setXY(x, y);
+		Point p = new Point(getName(), x, y);
 		
 		return p.toString();
 	}

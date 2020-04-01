@@ -31,7 +31,7 @@ public class Square extends Shape{
 		else
 		{
 			Square r1 = (Square)s1;
-			return mSquare.compareTo(r1);
+			return mSquare.compareTo(r1.mSquare);
 		}
 	}
 
