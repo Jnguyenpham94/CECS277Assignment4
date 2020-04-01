@@ -15,7 +15,7 @@ public class InvalidDistanceComputationException extends RuntimeException{
 
 	@Override
 	public String toString(){
-		return "can't Compute Distance between class " + mString + " and " + mString2;
+		return "can't Compute Distance Between class " + mString + " and " + mString2;
 	}
 
 	private String mString;
