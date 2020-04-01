@@ -10,8 +10,8 @@ public class InvalidComparisonException extends RuntimeException{
 
 
 	public InvalidComparisonException(String string, String string2) {
-		this.mString = string;
-		this.mString2 = string2;
+		mString = string;
+		mString2 = string2;
 	}
 
 	@Override

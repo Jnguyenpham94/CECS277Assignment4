@@ -28,6 +28,20 @@ public class Square extends Shape{
 	}
 
 	@Override
+	public boolean equals(Object o)
+	{
+		if(!(o instanceof Square))
+		{
+			throw new InvalidComparisonException("Square", o.getClass().toString());
+		}
+		else
+		{
+			Square s = (Square)o;			
+			return super.equals(s);
+		}
+	}
+
+	@Override
 	public String scale(int scalefactor) {
 		mSide *= scalefactor;
 		Square s = new Square();
@@ -46,10 +60,10 @@ public class Square extends Shape{
 			return 1;
 		}
 		Rectangle r = (Rectangle) o;
-		double recOne = getArea();
-		double rectwo = r.getArea();
+		Double recOne = new Double(getArea());
+		Double rectwo = new Double(r.getArea());
 		// TODO Equality for rectangles is defined by their areas being equal.
-		return 0;
+		return recOne.compareTo(rectwo);
 	}
 
 	private Rectangle mSquare;

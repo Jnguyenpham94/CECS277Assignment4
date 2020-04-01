@@ -66,7 +66,10 @@ public class Point extends Shape
 	@Override
 	public boolean equals(Object other)
 	{
-		if(!(other instanceof Point)) return false;
+		if(!(other instanceof Point))
+		{
+			throw new InvalidComparisonException("Point", other.getClass().toString());
+		}
 		else
 		{
 			Point p = (Point)other;
